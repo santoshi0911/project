@@ -48,7 +48,7 @@ services:
       - SPARK_SSL_ENABLED=no
       - SPARK_USER=spark
     volumes:
-      - ./dags:/opt/bitnami/spark/dags
+      - ./dags:/opt/bitnami/spark/dags 
       - jars:/opt/jars
     depends_on:
       - spark-master
