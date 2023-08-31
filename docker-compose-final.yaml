@@ -22,7 +22,9 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=password
   spark-master:
-    image: airflow-spark:latest
+    build: 
+      context: ./dockerfiles
+      dockerfile: 'Dockerfile.spark'
     environment:
       - SPARK_MODE=master
       - SPARK_RPC_AUTHENTICATION_ENABLED=no
@@ -36,7 +38,9 @@ services:
       - ./dags:/opt/bitnami/spark/dags
       - jars:/opt/jars
   spark-worker:
-    image: airflow-spark:latest
+    build: 
+      context: ./dockerfiles
+      dockerfile: 'Dockerfile.spark'
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
