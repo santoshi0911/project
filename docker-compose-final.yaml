@@ -40,7 +40,7 @@ services:
   spark-worker:
     build: 
       context: ./dockerfiles
-      dockerfile: 'Dockerfile.spark'
+      dockerfile: 'Dockerfile.spark' 
     environment:
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark-master:7077
